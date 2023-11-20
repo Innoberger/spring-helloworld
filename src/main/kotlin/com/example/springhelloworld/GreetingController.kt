@@ -4,19 +4,18 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.servlet.function.ServerResponse
 
 @RestController
-@RequestMapping("/helloworld")
-class HelloWorldController {
+@RequestMapping("/greeting")
+class GreetingController {
 
     @GetMapping("/")
-    fun getGeneralGreeting(): Greeting {
-        return Greeting();
+    fun getGeneralGreeting(): String {
+        return Greeting().toString()
     }
 
     @GetMapping("/{name}")
-    fun getNamedGreeting(@PathVariable name: String): Greeting {
-        return Greeting(name);
+    fun getNamedGreeting(@PathVariable name: String): String {
+        return Greeting(name).toString()
     }
 }

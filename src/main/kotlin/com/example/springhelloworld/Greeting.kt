@@ -1,4 +1,7 @@
 package com.example.springhelloworld
 
-class Greeting {
+data class Greeting(val name: String = "World") {
+    override fun toString(): String {
+        return "Hello ${name}!"
+    }
 }
